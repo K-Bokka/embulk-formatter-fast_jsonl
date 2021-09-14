@@ -42,7 +42,7 @@ case class PageOutput(schema: Schema, task: PluginTask, output: FileOutput)
       schema.visitColumns(visitor)
       encoder.addLine(visitor.getLine)
     }
-    ()
+    page.release()
   }
 
   override def finish(): Unit = encoder.finish()
